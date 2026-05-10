@@ -1,53 +1,49 @@
-// Obtención de referencias a los elementos del formulario
+// Configuración de EmailJS
+emailjs.init("6U-AS6Yrud9VYmS_U");
+
 const form = document.getElementById('contactForm');
 const submitButton = document.getElementById('submitButton');
+const formResponse = document.getElementById('formResponse');
 
-// Agregando el escuchador de eventos para el envío del formulario
-submitButton.addEventListener('click', async function(e) {
-  e.preventDefault();
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-  // Captura de los valores de los campos del formulario
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
 
-  // Validación básica del lado del cliente
-  if (!name || !email || !message) {
-    alert('Por favor, completa todos los campos.');
-    return;
-  }
-
-  // Deshabilitar botón para evitar múltiples envíos
-  submitButton.disabled = true;
-  submitButton.textContent = 'Enviando...';
-
-  try {
-    // Envío de los datos del formulario al servidor usando la API fetch
-    const response = await fetch('form.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`
-    });
-
-    // Procesando la respuesta del servidor
-    if (response.ok) {
-      console.log('El formulario se ha enviado correctamente.');
-      alert('¡Gracias! Tu mensaje ha sido enviado con éxito.');
-      form.reset(); // Restablecer el formulario después del envío exitoso
-    } else {
-      console.error('Error en el envío del formulario:', response.status);
-      alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.');
+    if (!name || !email || !message) {
+        showResponse('Por favor, completa los campos requeridos.', 'text-danger');
+        return;
     }
-  } catch (error) {
-    // Captura de errores de red o generales
-    console.error('Error en la petición:', error);
-    alert('No se pudo conectar con el servidor. Revisa tu conexión.');
-  } finally {
-    // Restaurar el estado del botón
-    submitButton.disabled = false;
-    submitButton.textContent = 'Enviar';
-  }
+
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Enviando...';
+
+    // Envío real con EmailJS (Configurado para Kevin Herrera)
+    try {
+        await emailjs.send("service_r62jxo7", "template_qpbx9rk", {
+            name: name,             // Coincide con {{name}} en tu plantilla
+            from_email: email,      // Puedes agregarlo a tu plantilla como {{from_email}}
+            phone_number: phone,    // Puedes agregarlo a tu plantilla como {{phone_number}}
+            message: message,       // Coincide con {{message}} en tu plantilla
+        });
+
+        showResponse('¡Gracias! Tu mensaje ha sido enviado con éxito.', 'text-success');
+        form.reset();
+    } catch (error) {
+        console.error('Error EmailJS:', error);
+        showResponse('Hubo un error al enviar el mensaje. Inténtalo de nuevo.', 'text-danger');
+    } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = '<i class="fa fa-paper-plane me-2"></i>Enviar Mensaje';
+    }
 });
 
+function showResponse(text, className) {
+    formResponse.innerHTML = `<p class="${className} animated fadeIn">${text}</p>`;
+    setTimeout(() => {
+        formResponse.innerHTML = '';
+    }, 5000);
+}

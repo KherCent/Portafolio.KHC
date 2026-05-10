@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Kevin HC</title>
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- LOGIN -->
+    <div id="login-screen">
+        <div class="login-card">
+            <div class="login-icon">
+                <i class="fa fa-lock"></i>
+            </div>
+            <h3>ADMIN ACCESS</h3>
+            <p class="login-subtitle">Panel de administración del portafolio</p>
+            <input type="password" id="admin-pass" class="form-control" placeholder="Ingresa tu contraseña">
+            <button id="login-btn" class="btn btn-primary w-100">ENTRAR</button>
+            <p id="login-error" class="login-error hidden">
+                <i class="fa fa-exclamation-triangle"></i> Acceso denegado
+            </p>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="admin-panel" class="hidden">
+        <!-- Top Bar -->
+        <div class="admin-topbar">
+            <span class="admin-logo"><i class="fa fa-cog"></i> CMS MANAGER</span>
+            <div class="admin-actions">
+                <button id="save-json-btn" class="btn btn-success btn-sm">
+                    <i class="fa fa-download"></i> Exportar JSON
+                </button>
+                <button id="copy-json-btn" class="btn btn-info btn-sm">
+                    <i class="fa fa-clipboard"></i> Copiar
+                </button>
+                <button id="logout-btn" class="btn btn-outline-danger btn-sm">
+                    <i class="fa fa-sign-out"></i> Salir
+                </button>
+            </div>
+        </div>
+
+        <div class="admin-layout">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <a href="#section-hero" class="sidebar-link active">
+                    <i class="fa fa-home"></i> Hero
+                </a>
+                <a href="#section-about" class="sidebar-link">
+                    <i class="fa fa-user"></i> Sobre Mí
+                </a>
+                <a href="#section-skills" class="sidebar-link">
+                    <i class="fa fa-code"></i> Habilidades
+                </a>
+                <a href="#section-experience" class="sidebar-link">
+                    <i class="fa fa-briefcase"></i> Experiencia
+                </a>
+                <a href="#section-projects" class="sidebar-link">
+                    <i class="fa fa-folder-open"></i> Proyectos
+                </a>
+                <a href="#section-blog" class="sidebar-link">
+                    <i class="fa fa-pencil"></i> Blog
+                </a>
+                <a href="#section-social" class="sidebar-link">
+                    <i class="fa fa-share-alt"></i> Social / Meta
+                </a>
+                <a href="#section-settings" class="sidebar-link">
+                    <i class="fa fa-font"></i> Configuración
+                </a>
+            </aside>
+
+            <!-- Main Editor -->
+            <main class="admin-main">
+                <!-- Hero -->
+                <div id="section-hero" class="editor-card">
+                    <h4><i class="fa fa-home"></i> Hero Section</h4>
+                    <div class="field-group">
+                        <label>Nombre</label>
+                        <input type="text" id="hero-name" class="form-control" placeholder="Tu nombre">
+                    </div>
+                    <div class="field-group">
+                        <label>Subtítulo</label>
+                        <input type="text" id="hero-subtitle" class="form-control" placeholder="Tu rol o descripción">
+                    </div>
+                    <div class="field-group">
+                        <label>Imagen (ruta)</label>
+                        <input type="text" id="hero-image" class="form-control" placeholder="assets/img/...">
+                    </div>
+                </div>
+
+                <!-- About -->
+                <div id="section-about" class="editor-card">
+                    <h4><i class="fa fa-user"></i> Sobre Mí</h4>
+                    <div class="field-group">
+                        <label>Descripción</label>
+                        <textarea id="about-desc" class="form-control" rows="4" placeholder="Escribe tu bio..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div id="section-skills" class="editor-card">
+                    <h4><i class="fa fa-code"></i> Habilidades</h4>
+                    <div id="skills-list"></div>
+                    <button class="btn btn-outline-primary btn-sm mt-3" onclick="addSkillCategory()">
+                        <i class="fa fa-plus"></i> Añadir Categoría
+                    </button>
+                </div>
+
+                <!-- Experience -->
+                <div id="section-experience" class="editor-card">
+                    <h4><i class="fa fa-briefcase"></i> Experiencia</h4>
+                    <div id="experience-list"></div>
+                    <button class="btn btn-outline-primary btn-sm mt-3" onclick="addExperience()">
+                        <i class="fa fa-plus"></i> Añadir Experiencia
+                    </button>
+                </div>
+
+                <!-- Projects -->
+                <div id="section-projects" class="editor-card">
+                    <h4><i class="fa fa-folder-open"></i> Proyectos (Carruseles)</h4>
+                    <div id="projects-list"></div>
+                    <button class="btn btn-outline-primary btn-sm mt-3" onclick="addProject()">
+                        <i class="fa fa-plus"></i> Añadir Grupo
+                    </button>
+                </div>
+
+                <!-- Blog -->
+                <div id="section-blog" class="editor-card">
+                    <h4><i class="fa fa-pencil"></i> Blog</h4>
+                    <div id="blog-list"></div>
+                    <button class="btn btn-outline-primary btn-sm mt-3" onclick="addBlogPost()">
+                        <i class="fa fa-plus"></i> Añadir Post
+                    </button>
+                </div>
+
+                <!-- Settings (Font Size) -->
+                <div id="section-settings" class="editor-card">
+                    <h4><i class="fa fa-font"></i> Configuración Visual</h4>
+                    <div class="field-row">
+                        <div class="field-group">
+                            <label>Tamaño Fuente Títulos (ej: 2.8rem)</label>
+                            <input type="text" id="settings-heading-size" class="form-control">
+                        </div>
+                        <div class="field-group">
+                            <label>Tamaño Fuente Cuerpo (ej: 1.05rem)</label>
+                            <input type="text" id="settings-body-size" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social & Meta -->
+                <div id="section-social" class="editor-card">
+                    <h4><i class="fa fa-share-alt"></i> Social & Meta</h4>
+                    <div class="field-row">
+                        <div class="field-group">
+                            <label>LinkedIn URL</label>
+                            <input type="text" id="social-linkedin" class="form-control">
+                        </div>
+                        <div class="field-group">
+                            <label>GitHub URL</label>
+                            <input type="text" id="social-github" class="form-control">
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <div class="field-group">
+                            <label>Email</label>
+                            <input type="text" id="social-email" class="form-control">
+                        </div>
+                        <div class="field-group">
+                            <label>Meta Title (SEO)</label>
+                            <input type="text" id="meta-title-input" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

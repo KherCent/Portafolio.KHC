@@ -1,179 +1,302 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const gridContainer = document.getElementById('juegoVida');
-  let cells = [];
-  let isPlaying = false;
-  let intervalId;
+    // --- CARGA DE CONTENIDO DINÁMICO (CMS) ---
+    async function loadContent() {
+        try {
+            const response = await fetch('content.json');
+            const data = await response.json();
 
-  const numRows = 30;
-  const numCols = 30;
+            // Meta
+            document.getElementById('meta-title').textContent = data.meta.title;
+            document.getElementById('meta-desc').setAttribute('content', data.meta.description);
 
-  // Crea la cuadrícula
-  for (let i = 0; i < numRows; i++) {
-    for (let j = 0; j < numCols; j++) {
-      const cell = document.createElement('div');
-      cell.classList.add('cell');
-      cell.addEventListener('click', toggleCell);
-      cell.addEventListener('contextmenu', clearCell);
-      gridContainer.appendChild(cell);
-      cells.push(cell);
-    }
-  }
+            // Hero
+            const heroContainer = document.getElementById('hero-container');
+            heroContainer.innerHTML = `
+                <img src="${data.hero.image}" alt="Icono Hero" class="img-fluid mb-4 floating-animation">
+                <h1 class="brand-heading">${data.hero.name}</h1>
+                <p class="intro-text" id="typing-text"></p>
+                <a class="btn-circle" role="button" href="#about" aria-label="Desplazarse hacia abajo">
+                    <i class="fa fa-angle-double-down"></i>
+                </a>
+            `;
 
-  // Agregar el autómata por defecto (Glider) al inicio del juego
-  setDefaultAutomata();
+            // Typing Effect
+            const text = data.hero.subtitle;
+            let charIdx = 0;
+            const typingEl = document.getElementById("typing-text");
+            function typeWriter() {
+                if (charIdx < text.length) {
+                    typingEl.textContent += text.charAt(charIdx);
+                    charIdx++;
+                    setTimeout(typeWriter, 45);
+                }
+            }
+            typeWriter();
 
-  // Alterna el estado de la celda al hacer clic izquierdo
-  function toggleCell(event) {
-    if (!isPlaying) {
-      event.target.classList.toggle('active');
-    } else {
-      isPlaying = false;
-      clearInterval(intervalId);
-      document.getElementById('playButton').textContent = 'Play';
-    }
-  }
+            // About
+            const aboutContainer = document.getElementById('about-container');
+            aboutContainer.innerHTML = `
+                <h2>${data.about.title}</h2>
+                <p>${data.about.description}</p>
+            `;
 
-  // Borra el estado de la celda al hacer clic derecho
-  function clearCell(event) {
-    if (!isPlaying) {
-      event.preventDefault();
-      event.target.classList.remove('active');
-    }
-  }
+            // Skills
+            const skillsContainer = document.getElementById('skills-container');
+            skillsContainer.innerHTML = data.skills.map(skill => `
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-card reveal">
+                        <h4 class="text-primary">${skill.category}</h4>
+                        <ul class="list-unstyled">
+                            ${skill.items.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `).join('');
 
-  // Inicia el juego
-  function startGame() {
-    isPlaying = !isPlaying;
+            // Experience
+            const experienceContainer = document.getElementById('experience-container');
+            experienceContainer.innerHTML = data.experience.map(exp => `
+                <div class="timeline-item reveal">
+                    <h4 class="text-primary">${exp.title}</h4>
+                    <span class="text-muted">${exp.period}</span>
+                    <p>${exp.description}</p>
+                </div>
+            `).join('');
 
-    if (isPlaying) {
-      intervalId = setInterval(updateCells, 500);
-      document.getElementById('playButton').textContent = 'Pause';
-    } else {
-      clearInterval(intervalId);
-      document.getElementById('playButton').textContent = 'Play';
-    }
-  }
+            // Settings: Apply Font Sizes
+            if (data.settings) {
+                document.documentElement.style.setProperty('--heading-size', data.settings.headingFontSize);
+                document.documentElement.style.setProperty('--body-size', data.settings.bodyFontSize);
+                document.body.style.fontSize = data.settings.bodyFontSize;
+            }
 
-  // Función para agregar el autómata "Glider" al inicio del juego
-  function setDefaultAutomata() {
-    // Coordenadas del patrón Glider
-    const gliderCoordinates = [
-      [1, 0],
-      [2, 1],
-      [0, 2],
-      [1, 2],
-      [2, 2],
-    ];
+            // Projects (Carousel Style)
+            const projectsContainer = document.getElementById('projects-container');
+            projectsContainer.innerHTML = data.projectCarousels.map((carousel, cIdx) => `
+                <div class="col-lg-6 mb-5">
+                    <h4 class="text-primary mb-3">${carousel.title}</h4>
+                    <div class="project-card reveal">
+                        <div id="carousel-${cIdx}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                            <div class="carousel-inner">
+                                ${carousel.items.map((item, iIdx) => `
+                                    <div class="carousel-item ${iIdx === 0 ? 'active' : ''}">
+                                        <img src="${item.image}" class="d-block w-100" alt="${item.title}">
+                                        <div class="carousel-caption d-md-block">
+                                            <h5 class="text-primary">${item.title}</h5>
+                                            <p>${item.description}</p>
+                                            ${item.link ? `<a href="${item.link}" target="_blank" class="btn btn-primary btn-sm mt-2">Ver Proyecto</a>` : ''}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            ${carousel.items.length > 1 ? `
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${cIdx}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-${cIdx}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
 
-    // Recorre las coordenadas del Glider y activa las celdas correspondientes
-    for (const [row, col] of gliderCoordinates) {
-      const index = row * numCols + col;
-      cells[index].classList.add('active');
-    }
-  }
+            // Blog (Carousel Style)
+            const blogContainer = document.getElementById('blog-container');
+            blogContainer.innerHTML = `
+                <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        ${data.blog.map((post, index) => `
+                            <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        <article class="blog-item reveal" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(0,229,255,0.1); border-radius: 15px; overflow: hidden; margin-bottom: 20px;">
+                                            <div class="blog-img-container">
+                                                <img src="${post.image}" alt="${post.title}" style="width: 100%; height: 350px; object-fit: cover;">
+                                            </div>
+                                            <div class="p-4">
+                                                <h3 class="text-primary mb-3">${post.title}</h3>
+                                                <p class="texto-destacado mb-3" style="font-size: 1.1rem; color: #fff;">${post.excerpt}</p>
+                                                <a href="#" class="read-more btn btn-outline-primary btn-sm" data-index="${index}">Leer más...</a>
+                                                <div class="blog-content-full mt-3" id="blog-content-${index}">
+                                                    <div class="p-3" style="background: rgba(255,255,255,0.03); border-radius: 10px; color: var(--text-dim); text-align: left; line-height: 1.6;">
+                                                        ${post.content.replace(/\n/g, '<br>')}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#blogCarousel" data-bs-slide="prev" style="width: 5%;">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#blogCarousel" data-bs-slide="next" style="width: 5%;">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                    <div class="carousel-indicators" style="position: relative; margin-top: 20px;">
+                        ${data.blog.map((_, i) => `
+                            <button type="button" data-bs-target="#blogCarousel" data-bs-slide-to="${i}" class="${i === 0 ? 'active' : ''}"></button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
 
-  // Obtiene el estado de una celda en la posición dada
-  function getCellState(row, col) {
-    if (row < 0 || row >= numRows || col < 0 || col >= numCols) {
-      return false;
-    }
-    const index = row * numCols + col;
-    const cell = cells[index];
-    return cell.classList.contains('active');
-  }
+            // Social
+            const socialContainer = document.getElementById('social-container');
+            socialContainer.innerHTML = `
+                <li class="list-inline-item">
+                    <a href="${data.social.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="${data.social.github}" target="_blank" rel="noopener" aria-label="GitHub Antiguo" title="GitHub Antiguo">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="${data.social.github_new}" target="_blank" rel="noopener" aria-label="GitHub Nuevo" title="GitHub Nuevo (Actual)">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x" style="color: var(--primary-main);"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="mailto:${data.social.email}" aria-label="Email">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            `;
 
-  // Obtiene el número de vecinos activos de una celda en la posición dada
-  function getActiveNeighbors(row, col) {
-    let count = 0;
-    for (let i = -1; i <= 1; i++) {
-      for (let j = -1; j <= 1; j++) {
-        if (i === 0 && j === 0) continue;
-        if (getCellState(row + i, col + j)) {
-          count++;
+            // Blog read-more
+            document.querySelectorAll('.read-more').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const idx = e.target.getAttribute('data-index');
+                    const content = document.getElementById(`blog-content-${idx}`);
+                    const isShowing = content.classList.toggle('show');
+                    e.target.textContent = isShowing ? 'Leer menos' : 'Leer más...';
+                });
+            });
+
+            // Reveal Animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        } catch (error) {
+            console.error("Error cargando contenido:", error);
+            // Fallback: mostrar mensaje
+            document.getElementById('hero-container').innerHTML = '<p class="text-danger">Error cargando contenido. Verifica content.json</p>';
         }
-      }
     }
-    return count;
-  }
 
-  // Actualiza el estado de las celdas
-  function updateCells() {
-    const newCellStates = [];
-    for (let row = 0; row < numRows; row++) {
-      for (let col = 0; col < numCols; col++) {
-        const isActive = getCellState(row, col);
-        const activeNeighbors = getActiveNeighbors(row, col);
-        let newState = isActive;
+    loadContent();
 
-        if (isActive && (activeNeighbors < 2 || activeNeighbors > 3)) {
-          newState = false;
-        } else if (!isActive && activeNeighbors === 3) {
-          newState = true;
+    // --- JUEGO DE LA VIDA ---
+    const gridContainer = document.getElementById('juegoVida');
+    let cells = [];
+    let isPlaying = false;
+    let intervalId;
+
+    const numRows = 30;
+    const numCols = 30;
+
+    for (let i = 0; i < numRows; i++) {
+        for (let j = 0; j < numCols; j++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            cell.addEventListener('click', toggleCell);
+            gridContainer.appendChild(cell);
+            cells.push(cell);
         }
-
-        newCellStates.push(newState);
-      }
     }
 
-    for (let i = 0; i < cells.length; i++) {
-      const cell = cells[i];
-      const newState = newCellStates[i];
+    setDefaultAutomata();
 
-      if (newState) {
-        cell.classList.add('active');
-      } else {
-        cell.classList.remove('active');
-      }
+    function toggleCell(event) {
+        if (!isPlaying) {
+            event.target.classList.toggle('active');
+        }
     }
-  }
 
-  // Asigna el evento de clic al botón de reproducción
-  const playButton = document.getElementById('playButton');
-  playButton.addEventListener('click', startGame);
-
-  // Función para limpiar el estado de todas las celdas
-  function clearGrid() {
-    for (let i = 0; i < cells.length; i++) {
-      cells[i].classList.remove('active');
+    function startGame() {
+        isPlaying = !isPlaying;
+        if (isPlaying) {
+            intervalId = setInterval(updateCells, 500);
+            document.getElementById('playButton').textContent = 'Pause';
+        } else {
+            clearInterval(intervalId);
+            document.getElementById('playButton').textContent = 'Play';
+        }
     }
-  }
 
-  // Evento de clic para el botón de reinicio
-  const resetButton = document.getElementById('resetButton');
-  resetButton.addEventListener('click', () => {
-    clearInterval(intervalId);
-    isPlaying = false;
-    document.getElementById('playButton').textContent = 'Play';
-    clearGrid();
-  });
-
-  // Evento de clic para las celdas durante la reproducción para evitar cambios en el estado
-  gridContainer.addEventListener('click', (event) => {
-    if (isPlaying) {
-      event.stopPropagation();
+    function setDefaultAutomata() {
+        const gliderCoordinates = [[1, 0], [2, 1], [0, 2], [1, 2], [2, 2]];
+        for (const [row, col] of gliderCoordinates) {
+            const index = row * numCols + col;
+            cells[index].classList.add('active');
+        }
     }
-  });
 
-  // Evento de clic derecho para las celdas durante la reproducción para evitar cambios en el estado
-  gridContainer.addEventListener('contextmenu', (event) => {
-    if (isPlaying) {
-      event.preventDefault();
+    function getCellState(row, col) {
+        if (row < 0 || row >= numRows || col < 0 || col >= numCols) return false;
+        return cells[row * numCols + col].classList.contains('active');
     }
-  });
 
-  // --- Mejoras para la sección de BLOG ---
+    function getActiveNeighbors(row, col) {
+        let count = 0;
+        for (let i = -1; i <= 1; i++) {
+            for (let j = -1; j <= 1; j++) {
+                if (i === 0 && j === 0) continue;
+                if (getCellState(row + i, col + j)) count++;
+            }
+        }
+        return count;
+    }
 
-  // Función global para alternar la visualización del texto del blog
-  window.toggleBlogText = function(event) {
-    event.preventDefault();
-    const link = event.target;
-    const parent = link.closest('.blog-item');
-    const moreText = parent.querySelector('.blog-content-full');
-    
-    // Alternar la clase 'show' para activar la transición CSS
-    const isShowing = moreText.classList.toggle('show');
-    
-    // Actualizar el texto del enlace
-    link.textContent = isShowing ? 'Leer menos' : 'Leer más...';
-  };
+    function updateCells() {
+        const newStates = cells.map((_, i) => {
+            const row = Math.floor(i / numCols);
+            const col = i % numCols;
+            const isActive = getCellState(row, col);
+            const neighbors = getActiveNeighbors(row, col);
+            if (isActive && (neighbors < 2 || neighbors > 3)) return false;
+            if (!isActive && neighbors === 3) return true;
+            return isActive;
+        });
+
+        cells.forEach((cell, i) => {
+            if (newStates[i]) cell.classList.add('active');
+            else cell.classList.remove('active');
+        });
+    }
+
+    document.getElementById('playButton').addEventListener('click', startGame);
+    document.getElementById('resetButton').addEventListener('click', () => {
+        clearInterval(intervalId);
+        isPlaying = false;
+        document.getElementById('playButton').textContent = 'Play';
+        cells.forEach(c => c.classList.remove('active'));
+        setDefaultAutomata();
+    });
 });

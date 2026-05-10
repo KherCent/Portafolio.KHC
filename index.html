@@ -1,399 +1,180 @@
-<!-- Inicio del documento HTML del portafolio -->
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Kevin HC - Portafolio</title>
-    <!-- Importación de Estilos y Fuentes Externas -->
+    <title id="meta-title">Kevin HC - Portafolio</title>
+    <meta name="description" id="meta-desc" content="Portafolio profesional de Kevin Herrera Centellas">
+    <meta property="og:title" content="Kevin HC - Portafolio">
+    <meta property="og:description" content="Ingeniero Informático & Desarrollador Full Stack">
+    <meta property="og:image" id="meta-og-image" content="assets/img/cerebroSinFondo.png">
+
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/img/cerebroSinFondo.png">
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
-    <!-- Navegación Principal -->
-    <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#">KEVIN HC</a>
-            <button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu">
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"
+                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#about">Sobre Mí</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#download">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experiencia</a></li>
                     <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#juego">Easter Egg</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Sección de Cabecera (Hero) -->
+    <!-- Hero -->
     <header class="masthead">
+        <div id="particles-js" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:0;"></div>
         <div class="intro-body">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <img src="assets/img/cerebroSinFondo.png" alt="Icono Cerebro" class="img-fluid mb-4">
-                        <h1 class="brand-heading">KEVIN HERRERA</h1>
-                        <p class="intro-text">Desarrollador Backend & Entusiasta de la Tecnología</p>
-                        <a class="btn btn-link btn-circle" role="button" href="#about" aria-label="Desplazarse hacia abajo">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
+                    <div class="col-lg-8 mx-auto" id="hero-container">
+                        <div class="spinner-border text-info" role="status"></div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Sección Sobre Mí -->
-    <section class="text-center content-section" id="about">
+    <!-- Sobre Mí -->
+    <section class="content-section" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>Sobre Mí</h2>
-                    <p class="text-justify">
-                        Autodidacta apasionado por la tecnología, poseo experiencia en soporte técnico, programación y desarrollo de soluciones digitales. 
-                        Mi trayectoria incluye la participación en proyectos de creación de impresoras 3D, CNC routers, desarrollo de aplicaciones Android, 
-                        sistemas ERP con Odoo, diseño web, además de ofrecer soporte de hardware y software.
-                    </p>
-                </div>
+                <div class="col-lg-8 mx-auto" id="about-container"></div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Habilidades (Skills) -->
+    <!-- Habilidades -->
     <section class="content-section" id="skills">
         <div class="container">
-            <h2 class="text-center mb-5">Habilidades Técnicas</h2>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="skill-card">
-                        <h4>Backend</h4>
-                        <ul class="list-unstyled">
-                            <li>Java (Spring Boot)</li>
-                            <li>Node.js (Express)</li>
-                            <li>Python</li>
-                            <li>SQL (PostgreSQL, MySQL)</li>
-                            <li>RESTful APIs</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="skill-card">
-                        <h4>Frontend</h4>
-                        <ul class="list-unstyled">
-                            <li>JavaScript (ES6+)</li>
-                            <li>React.js</li>
-                            <li>Tailwind CSS</li>
-                            <li>HTML5 / CSS3</li>
-                            <li>Responsive Design</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="skill-card">
-                        <h4>Infraestructura</h4>
-                        <ul class="list-unstyled">
-                            <li>Linux (Ubuntu Server)</li>
-                            <li>Docker</li>
-                            <li>Git / GitHub</li>
-                            <li>Windows Server</li>
-                            <li>Active Directory</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="skill-card">
-                        <h4>IoT & CNC</h4>
-                        <ul class="list-unstyled">
-                            <li>C++ (Embebido)</li>
-                            <li>Marlin / GRBL</li>
-                            <li>Impresión 3D</li>
-                            <li>Energía Solar</li>
-                            <li>Electrónica Aplicada</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <h2 class="mb-5">Habilidades Técnicas</h2>
+            <div class="row justify-content-center" id="skills-container"></div>
         </div>
     </section>
 
-    <!-- Sección de Experiencia Profesional -->
+    <!-- Experiencia -->
     <section class="content-section" id="experience">
         <div class="container">
-            <h2 class="text-center mb-5">Experiencia Profesional</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Desarrollador Full Stack | BLCorporations</h4>
-                    <span class="text-muted">Nov 2025 – Actualidad</span>
-                    <p>Liderazgo técnico en solución middleware para logística China-Sudamérica. Generación masiva de etiquetas (ZPL, EPL, PDF).</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Supervisor Técnico | DATXER</h4>
-                    <span class="text-muted">Mar 2025 – Oct 2025</span>
-                    <p>Gestión de equipos técnicos para infraestructura de impresión en minería (AMSA, Gold Fields).</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Soporte en Terreno | Coasin Logicalis</h4>
-                    <span class="text-muted">Jun 2024 – Feb 2025</span>
-                    <p>Soporte TI en faena minera Zaldívar. Resolución de incidencias y gestión de infraestructura de red.</p>
-                </div>
+            <h2 class="mb-5">Experiencia Profesional</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" id="experience-container"></div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Descarga CV -->
-    <section class="text-center download-section content-section" id="download">
+    <!-- CV -->
+    <section class="content-section" id="download">
         <div class="container">
             <div class="col-lg-8 mx-auto">
-                <h1>Descargar Currículum vitae</h1>
-                <p>Descarga la versión completa de mi perfil profesional.</p>
-                <a class="btn btn-primary btn-lg" href="assets/img/CV Jorge kevin herrera centellas.png" download aria-label="Descargar currículum en formato imagen">
-                    <strong>DESCARGAR CV</strong>
+                <h2 class="mb-3">Descargar CV</h2>
+                <p class="mb-4">Descarga mi perfil profesional completo en formato PDF.</p>
+                <a class="btn btn-primary btn-lg" href="Developer CV  J.kevin herrera centellas.pdf" download>
+                    <i class="fa fa-download me-2"></i>DESCARGAR CV
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Proyectos -->
-    <section class="text-center content-section" id="proyectos">
+    <!-- Proyectos -->
+    <section class="content-section" id="proyectos">
         <div class="container">
-            <h1 class="mb-5">Proyectos Destacados</h1>
-            <div class="row">
-                <!-- Carrusel 1: Logística y E-commerce -->
-                <div class="col-lg-6 mb-4">
-                    <div class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" id="carousel-1">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="w-100 d-block" src="assets/img/proyectos/blc_logistics.png" alt="Logística Middleware">
-                                <div class="carousel-caption d-none d-md-block glass-caption">
-                                    <h5>Logística Última Milla (BLC)</h5>
-                                    <p>Middleware para gestión de envíos China-Sudamérica.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="w-100 d-block" src="assets/img/proyectos/odoo_ecommerce.png" alt="Odoo ERP">
-                                <div class="carousel-caption d-none d-md-block glass-caption">
-                                    <h5>E-commerce Odoo</h5>
-                                    <p>Implementación de ERP y tienda online personalizada.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-1" data-bs-slide="prev" aria-label="Anterior">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-1" data-bs-slide="next" aria-label="Siguiente">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Siguiente</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Carrusel 2: IoT, CNC y Energía -->
-                <div class="col-lg-6 mb-4">
-                    <div class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" id="carousel-2">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="w-100 d-block" src="assets/img/proyectos/solar_system.png" alt="Instalación de paneles solares fotovoltaicos">
-                                <div class="carousel-caption d-none d-md-block glass-caption">
-                                    <h5>Energía Fotovoltaica</h5>
-                                    <p>Planta solar de 6000W con gestión inteligente.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="w-100 d-block" src="assets/img/proyectos/cnc_router.png" alt="Máquina CNC Router profesional en funcionamiento">
-                                <div class="carousel-caption d-none d-md-block glass-caption">
-                                    <h5>Maquinaria CNC & 3D</h5>
-                                    <p>Diseño y construcción de Routers CNC e Impresoras 3D.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-2" data-bs-slide="prev" aria-label="Anterior">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-2" data-bs-slide="next" aria-label="Siguiente">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Siguiente</span>
-                        </button>
-                    </div>
-                 <!-- Sección del Blog -->
-    <section class="text-center download-section content-section" id="blog">
-        <div class="container">
-            <h2 class="mb-5">Blog</h2>
-            <div class="row">
-                <!-- Artículo 1: Sesgos Cognitivos -->
-                <div class="col-md-10 mx-auto">
-                    <article class="blog-item">
-                        <!-- Imagen con overlay de diseño se maneja en CSS -->
-                        <img class="pull-left img-fluid" src="assets/img/sesgos.jpg.webp" alt="Ilustración de sesgos cognitivos en programación" style="width: 400px;">
-                        <div class="texto-centrado">
-                            <h3>Los sesgos cognitivos y los errores de programación.</h3>
-                            <p class="texto-destacado">
-                                Los sesgos cognitivos pueden tener un impacto significativo en el trabajo de los programadores y en el desarrollo de software en general. Estos sesgos pueden limitar la capacidad de los programadores para considerar todas las opciones disponibles y tomar decisiones informadas.
-                            </p>
-                            <h4><a href="#" onclick="toggleBlogText(event)" aria-label="Leer más sobre sesgos cognitivos">Leer más...</a></h4>
-                            <div class="blog-content-full">
-                                <p>
-                                    Los sesgos cognitivos pueden afectar a los programadores de varias maneras. Algunos ejemplos de cómo los sesgos cognitivos pueden influir en el trabajo de los programadores son los siguientes: <br><br>
-                                    <strong>Sesgo de confirmación:</strong> Un programador puede tener una idea preconcebida de cómo debe ser una solución y buscar únicamente información que respalde esa idea, en lugar de considerar alternativas. Por ejemplo, un programador que cree que el lenguaje de programación A es siempre más eficiente que el lenguaje de programación B puede descartar automáticamente cualquier evidencia que sugiera lo contrario.<br>
-                                    <strong>Sesgo de anclaje:</strong> Un programador puede decidir seguir un camino determinado profundamente únicamente en la primera información que recibió. Por ejemplo, si un programador lee un artículo que recomienda el uso de una biblioteca particular para una tarea específica, puede tomar esa biblioteca como la mejor opción sin explorar otras opciones.<br>
-                                    <strong>Sesgo de disponibilidad:</strong> Un programador puede basar sus decisiones únicamente en información que es fácilmente accesible, en lugar de buscar información más completa y relevante. Por ejemplo, un programador puede elegir una biblioteca para una tarea específica sólo porque es la primera opción que aparece en la búsqueda de Google, sin investigar si hay opciones más adecuadas.<br>
-                                    <strong>Sesgo de optimismo:</strong> Un programador puede subestimar los riesgos o problemas potenciales asociados con una solución y sobreestimar su probabilidad de éxito. Por ejemplo, un programador puede pensar que una nueva característica de software es fácil de implementar y no requiere mucho tiempo, cuando en realidad es un proyecto complicado y requiere mucho tiempo y recursos.<br>
-                                    <strong>Sesgo de la narrativa:</strong> Un programador puede construir una narrativa coherente para justificar sus decisiones y descartar información que contradiga esa narrativa. Por ejemplo, un programador puede justificar el uso de una tecnología particular porque ha tenido éxito en el pasado, ignorando el hecho de que no es la mejor opción para la tarea actual.<br><br>
-                                    En general, los sesgos cognitivos pueden limitar la capacidad de un programador para considerar todas las opciones y tomar decisiones informadas, lo que puede llevar a problemas en el software. Es importante que los programadores sean conscientes de estos sesgos y trabajen para evitarlos.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                </div>
-
-                <!-- Artículo 2: Efecto Google -->
-                <div class="col-md-10 mx-auto mt-5">
-                    <article class="blog-item">
-                        <img class="pull-left img-fluid" src="assets/img/google.jfif" alt="Logo de Google con efecto de distorsión" style="width: 400px;">
-                        <div class="texto-centrado">
-                            <h3>El efecto Google: La amnesia digital</h3>
-                            <p class="texto-destacado">
-                                El Efecto Google, también conocido como amnesia digital, es un fenómeno psicológico que se ha vuelto cada vez más relevante en la era de la información digital. Se refiere a la tendencia de olvidar información que se puede encontrar fácilmente en línea mediante el uso de motores de búsqueda en Internet.
-                            </p>
-                            <h4><a href="#" onclick="toggleBlogText(event)" aria-label="Leer más sobre el efecto Google">Leer más...</a></h4>
-                            <div class="blog-content-full">
-                                <p>
-                                    Las personas tienen menos probabilidades de recordar información si creen que estará disponible para su consulta más adelante. Es decir, la confianza en la existencia de una fuente externa de información (Google u otros motores de búsqueda) puede llevar a la pérdida de la memoria del contenido específico.<br><br>
-                                    El término "amnesia digital" también ha sido acuñado para describir este fenómeno. Un estudio realizado por Kaspersky Lab en 2015 mostró que las personas recurren a Internet o sus teléfonos inteligentes en lugar de recordar información importante, como números de teléfono u otros datos personales, ya que saben que pueden acceder a ellos rápidamente en línea.<br><br>
-                                    Se ha debatido si el Efecto Google podría considerarse una forma de "memoria transactiva", donde las personas externalizan parte de su memoria al confiar en la información almacenada en dispositivos o en la nube. Sin embargo, algunos investigadores han cuestionado esta noción, argumentando que la relación entre las personas y las computadoras es más bien una interacción instrumental, y no una transacción de memoria.<br><br>
-                                    Los programadores deben buscar la mejora continua de sus habilidades y conocimientos, y mantenerse actualizados sobre las últimas tendencias y tecnologías en su campo. También deben estar abiertos a críticas constructivas y dispuestos a aprender de sus errores.<br><br>
-                                    No obstante, es esencial tener en cuenta que el acceso a la información en línea también ha brindado ventajas significativas. Los programadores y profesionales de la tecnología pueden aprovechar motores de búsqueda como Google para resolver problemas, encontrar soluciones y mantenerse actualizados en un campo en constante evolución.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                </div>
-
-                <!-- Artículo 3: Deontología -->
-                <div class="col-md-10 mx-auto mt-5">
-                    <article class="blog-item">
-                        <img class="pull-left img-fluid" src="assets/img/deontologia.jpg" alt="Libros de ética y leyes" style="width: 400px;">
-                        <div class="texto-centrado">
-                            <h3>La deontología de la programación.</h3>
-                            <p class="texto-destacado">
-                                Es el conjunto de principios éticos y morales que deben guiar el comportamiento de los programadores en su trabajo diario. Como profesionales de la tecnología, tenemos la responsabilidad de desarrollar software seguro, confiable y respetuoso.
-                            </p>
-                            <h4><a href="#" onclick="toggleBlogText(event)" aria-label="Leer más sobre deontología">Leer más...</a></h4>
-                            <div class="blog-content-full">
-                                <p>
-                                    A continuación, se presentan algunos de los principios éticos que los programadores deben seguir para garantizar que su trabajo sea ético y respetuoso con los usuarios:<br><br>
-                                    <strong>Privacidad y seguridad de los usuarios:</strong> Los programadores deben garantizar la privacidad y la seguridad de los datos de los usuarios en todo momento. Esto significa que los programadores deben diseñar sistemas seguros, implementar protocolos de seguridad y proteger los datos de los usuarios de posibles vulnerabilidades y ataques.<br><br>
-                                    <strong>Transparencia y honestidad:</strong> Los programadores deben ser transparentes y honestas en su trabajo, y deben proporcionar a los usuarios información clara y comprensible sobre el uso que se da a sus datos personales. Los programadores también deben ser honestas sobre las limitaciones y posibles riesgos asociados con el uso de sus productos. <br><br>
-                                    <strong>Responsabilidad social:</strong> Los programadores tienen la responsabilidad social de asegurarse de que sus productos no dañen a los usuarios ni a la sociedad en general. Esto significa que los programadores deben considerar las posibles consecuencias de su trabajo, incluido el impacto ambiental, social y económico.<br><br>
-                                    <strong>Igualdad e inclusión:</strong> Los programadores deben trabajar para garantizar que sus productos sean accesibles e inclusivos para todos los usuarios, independientemente de su género, raza, origen étnico o discapacidad.<br><br>
-                                    Los programadores deben buscar la mejora continua de sus habilidades y conocimientos, y mantenerse actualizados sobre las últimas tendencias y tecnologías en su campo. También deben estar abiertos a críticas constructivas y dispuestos a aprender de sus errores.<br><br>
-                                    En conclusión, la deontología de la programación es fundamental para garantizar que el trabajo de los programadores sea ético y respetuoso con los usuarios y la sociedad en general. Los programadores deben seguir principios éticos y morales que les permitan desarrollar software seguro, confiable y accesible.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                </div>
-            </div>
+            <h2 class="mb-5">Proyectos Destacados</h2>
+            <div class="row justify-content-center" id="projects-container"></div>
         </div>
     </section>
 
-    <!-- Sección de Contacto -->
-    <section class="text-center content-section" id="contacto">
+    <!-- Blog -->
+    <section class="content-section" id="blog">
+        <div class="container">
+            <h2 class="mb-5">Blog</h2>
+            <div class="row justify-content-center" id="blog-container"></div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="content-section" id="contacto">
         <div class="container">
             <div class="col-lg-8 mx-auto">
                 <form method="post" id="contactForm">
-                    <h2 class="text-center mb-4"><strong>CONTÁCTAME</strong></h2>
+                    <h2 class="mb-4">Contáctame</h2>
                     <div class="mb-3">
-                        <input class="form-control" type="text" id="name" name="name" placeholder="Nombre" required aria-label="Tu nombre">
+                        <input class="form-control" type="text" id="name" name="name" placeholder="Tu nombre" required>
                     </div>
                     <div class="mb-3">
-                        <input class="form-control" type="email" id="email" name="email" placeholder="Email" required aria-label="Tu correo electrónico">
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Tu email" required>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control" id="message" name="message" placeholder="Mensaje" rows="5" required aria-label="Tu mensaje"></textarea>
+                        <input class="form-control" type="tel" id="phone" name="phone" placeholder="Tu teléfono (opcional)">
                     </div>
-                    <button id="submitButton" class="btn btn-primary" type="submit">Enviar</button>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="message" name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+                    </div>
+                    <button id="submitButton" class="btn btn-primary" type="submit">
+                        <i class="fa fa-paper-plane me-2"></i>Enviar Mensaje
+                    </button>
                     <div id="formResponse" class="mt-3"></div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Sección Easter Egg (Juego de la Vida) -->
-    <section class="text-center content-section" id="juego">
+    <!-- Easter Egg -->
+    <section class="content-section" id="juego">
         <div class="container">
-            <h2>EL JUEGO DE LA VIDA</h2>
-            <p>Un autómata celular diseñado por John Conway. ¡Haz clic para crear vida!</p>
-            <p class="rules-text text-muted mb-4"> 
-                Si una célula está viva y tiene dos o tres vecinas vivas, sobrevive. || 
-                Si una célula está muerta y tiene tres vecinas vivas, nace. || 
-                Si una célula está viva y tiene más de tres vecinas vivas, muere.
+            <h2>El Juego de la Vida</h2>
+            <p class="mb-2">Un autómata celular diseñado por John Conway. ¡Haz clic para crear vida!</p>
+            <p class="text-muted small mb-4">
+                Célula viva con 2-3 vecinas → sobrevive &nbsp;|&nbsp;
+                Célula muerta con 3 vecinas → nace &nbsp;|&nbsp;
+                Más de 3 vecinas → muere
             </p>
-            <div id="juegoVida" class="mx-auto"></div>
+            <div id="juegoVida"></div>
             <div class="mt-4">
-                <button class="btn btn-primary" id="playButton">Play</button>
-                <button class="btn btn-primary mx-2" id="resetButton">Reset</button>
+                <button class="btn btn-primary me-2" id="playButton">
+                    <i class="fa fa-play me-1"></i> Play
+                </button>
+                <button class="btn btn-outline-primary" id="resetButton">
+                    <i class="fa fa-refresh me-1"></i> Reset
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="footerpad" class="py-5">
+    <footer id="footerpad">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-8 mx-auto">
-                    <ul class="list-inline text-center w-100">
-                        <li class="list-inline-item">
-                            <a href="https://www.linkedin.com/in/kevin-herrera-centellas-2351a3262/" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://github.com/kevin-hc" target="_blank" rel="noopener" aria-label="GitHub Profile">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="mailto:kevin.herrera.centellas@gmail.com" aria-label="Send Email">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-google fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted text-center pt-3">Copyright © Portafolio Kevin Herrera Centellas 2026</p>
+                <div class="col-lg-8 mx-auto">
+                    <ul class="list-inline mb-4" id="social-container"></ul>
+                    <p class="copyright">© 2026 Kevin Herrera Centellas — Todos los derechos reservados</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/grayscale.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="particles.js"></script>
     <script src="script.js"></script>
     <script src="formScript.js"></script>
 </body>
-
 </html>

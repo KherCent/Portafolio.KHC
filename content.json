@@ -1,0 +1,199 @@
+{
+  "settings": {
+    "headingFontSize": "1.5rem",
+    "bodyFontSize": "1.05rem"
+  },
+  "hero": {
+    "name": "J. KEVIN HERRERA CENTELLAS",
+    "subtitle": "Ingeniero TI | Desarrollador Full Stack | Especialista en Soluciones Digitales",
+    "image": "assets/img/cerebroSinFondo.png"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Ing. TI apasionado por la tecnología, con experiencia en soporte técnico, programación y desarrollo de soluciones digitales. Mi trayectoria incluye la participación en proyectos de fabricación de impresoras 3D y routers CNC, implementación y gestión de sistemas ERP con Odoo, diseño y desarrollo web, además de brindar soporte y reparación de hardware y software. Me caracterizo por mi capacidad de aprendizaje continuo, resolución de problemas y adaptación a nuevas tecnologías."
+  },
+  "skills": [
+    {
+      "category": "Backend",
+      "items": [
+        "Java (Spring Boot)",
+        "Node.js (Express)",
+        "Python",
+        "SQL (PostgreSQL, MySQL)",
+        "RESTful APIs"
+      ]
+    },
+    {
+      "category": "Frontend",
+      "items": [
+        "JavaScript (ES6+)",
+        "React.js",
+        "jQuery",
+        "Tailwind CSS",
+        "HTML5 / CSS3",
+        "Responsive Design"
+      ]
+    },
+    {
+      "category": "Infraestructura & ERP",
+      "items": [
+        "Odoo ERP",
+        "Oracle Cloud",
+        "Linux (Ubuntu Server)",
+        "Docker",
+        "Git / GitHub",
+        "Windows Server"
+      ]
+    },
+    {
+      "category": "IoT & CNC",
+      "items": [
+        "C++ (Marlin / GRBL)",
+        "Impresión 3D",
+        "Energía Solar Fotovoltaica",
+        "Electrónica Aplicada",
+        "Diagnóstico de Hardware"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Programador Full Stack | BLCorporations",
+      "period": "Nov 2025 – Mar 2026",
+      "description": "Desarrollo de un middleware para encomiendas internacionales y de última milla. El sistema consiste en un core que gestiona los pedidos despachados desde los remitentes en China, generando etiquetas en múltiples formatos (PDF, ZPL, EPL) y un sistema de trazabilidad integrado con Aduanas y múltiples couriers"
+    },
+    {
+      "title": "Supervisor Técnico | DATXER",
+      "period": "Mar 2025 – Oct 2025",
+      "description": "Responsable de coordinar y ejecutar labores de soporte técnico en terreno, realizando mantenimiento preventivo y correctivo, diagnóstico y reparación de equipos de impresión, en faenas mineras y corporativas de empresas como AMSA, Gold Fields y Finning."
+    },
+    {
+      "title": "Soporte en Terreno | Coasin Logicalis",
+      "period": "Jun 2024 – Feb 2025",
+      "description": "Soporte informático en terreno en Minera Zaldívar, encargado de la atención a usuarios, diagnóstico y resolución de incidencias de software y hardware, asegurando la continuidad operativa"
+    },
+    {
+      "title": "Programador Full Stack Javascript | Xorex",
+      "period": "Ene 2022 – Mar 2024",
+      "description": "Desarrollo de interfaces de usuario interactivas y dinámicas utilizando React. Creación y gestión de APIs REST con Node.js."
+    },
+    {
+      "title": "Programador Java-Spring | Sercabol",
+      "period": "Jun 2020 – Nov 2021",
+      "description": "Mantenimiento y actualización del sistema HRMS, incluyendo la gestión de bases de datos, refactorización de codigo y la implementación de nuevas funciones."
+    }
+  ],
+  "projectCarousels": [
+    {
+      "title": "E-commerce Odoo (Fullias.com)",
+      "items": [
+        {
+          "title": "Inicio",
+          "description": "Página principal del e-commerce.",
+          "image": "assets/img/eCommerce/inicio.png",
+          "link": "https://fullias.com"
+        },
+        {
+          "title": "Detalle de Producto",
+          "description": "Vista detallada de productos con Odoo.",
+          "image": "assets/img/eCommerce/producto.png",
+          "link": "https://fullias.com"
+        },
+        {
+          "title": "Carrito de Compras",
+          "description": "Gestión de carrito y flujo de compra.",
+          "image": "assets/img/eCommerce/carro.png",
+          "link": "https://fullias.com"
+        },
+        {
+          "title": "Confirmación",
+          "description": "Proceso de checkout y confirmación.",
+          "image": "assets/img/eCommerce/confirmarCompra.png",
+          "link": "https://fullias.com"
+        },
+        {
+          "title": "Panel de Administración",
+          "description": "Gestión de inventario y creación de productos.",
+          "image": "assets/img/eCommerce/crearProducto.png",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "title": "Logística China-Sudamérica",
+      "items": [
+        {
+          "title": "Software de Logística para BLcorporations",
+          "description": "Middleware para gestión de envíos China-Sudamérica.",
+          "image": "assets/img/proyectos/top_secret_blc.png",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "title": "IoT, CNC y Energía",
+      "items": [
+        {
+          "title": "Energía Fotovoltaica",
+          "description": "Planta solar de 6000W con gestión inteligente.",
+          "image": "assets/img/proyectos/solar_system.png",
+          "link": ""
+        },
+        {
+          "title": "Maquinaria CNC & 3D",
+          "description": "Diseño y construcción de Routers CNC e Impresoras 3D.",
+          "image": "assets/img/proyectos/cnc_router.png",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "title": "Otros Proyectos",
+      "items": [
+        {
+          "title": "Sistema de Estacionamiento",
+          "description": "Desarrollo de software para control de accesos y pagos.",
+          "image": "assets/img/EstacionamientoProject.png",
+          "link": ""
+        },
+        {
+          "title": "Gestión de Estacionamiento v2",
+          "description": "Interfaz mejorada y reportes avanzados.",
+          "image": "assets/img/EstacionamientoProject2.png",
+          "link": ""
+        }
+      ]
+    }
+  ],
+  "blog": [
+    {
+      "title": "Los sesgos cognitivos y los errores de programación.",
+      "excerpt": "Los sesgos cognitivos pueden tener un impacto significativo en el trabajo de los programadores y en el desarrollo de software en general. Estos sesgos pueden limitar la capacidad de los programadores para considerar todas las opciones disponibles y tomar decisiones informadas.",
+      "content": "Los sesgos cognitivos pueden afectar a los programadores de varias maneras. Algunos ejemplos de cómo los sesgos cognitivos pueden influir en el trabajo de los programadores son los siguientes:\nSesgo de confirmación: Un programador puede tener una idea preconcebida de cómo debe ser una solución y buscar únicamente información que respalde esa idea, en lugar de considerar alternativas. Por ejemplo, un programador que cree que el lenguaje de programación A es siempre más eficiente que el lenguaje de programación B puede descartar automáticamente cualquier evidencia que sugiera lo contrario.\nSesgo de anclaje: Un programador puede decidir seguir un camino determinado profundamente únicamente en la primera información que recibió. Por ejemplo, si un programador lee un artículo que recomienda el uso de una biblioteca particular para una tarea específica, puede tomar esa biblioteca como la mejor opción sin explorar otras opciones.\nSesgo de disponibilidad: Un programador puede basar sus decisiones únicamente en información que es fácilmente accesible, en lugar de buscar información más completa y relevante. Por ejemplo, un programador puede elegir una biblioteca para una tarea específica sólo porque es la primera opción que aparece en la búsqueda de Google, sin investigar si hay opciones más adecuadas.\nSesgo de optimismo: Un programador puede subestimar los riesgos o problemas potenciales asociados con una solución y sobreestimar su probabilidad de éxito. Por ejemplo, un programador puede pensar que una nueva característica de software es fácil de implementar y no requiere mucho tiempo, cuando en realidad es un proyecto complicado y requiere mucho tiempo y recursos.\nSesgo de la narrativa: Un programador puede construir una narrativa coherente para justificar sus decisiones y descartar información que contradiga esa narrativa. Por ejemplo, un programador puede justificar el uso de una tecnología particular porque ha tenido éxito en el pasado, ignorando el hecho de que no es la mejor opción para la tarea actual.\nEn general, los sesgos cognitivos pueden limitar la capacidad de un programador para considerar todas las opciones y tomar decisiones informadas, lo que puede llevar a problemas en el software. Es importante que los programadores sean conscientes de estos sesgos y trabajen para evitarlos.do completo sobre sesgos cognitivos...",
+      "image": "assets/img/sesgos.jpg.webp"
+    },
+    {
+      "title": "El efecto Google: La amnesia digital",
+      "excerpt": "El Efecto Google, también conocido como amnesia digital, es un fenómeno psicológico que se ha vuelto cada vez más relevante en la era de la información digital. Se refiere a la tendencia de olvidar información que se puede encontrar fácilmente en línea mediante el uso de motores de búsqueda en Internet. En otras palabras, las personas tienden a confiar tanto en la disponibilidad inmediata de información en línea que su capacidad para recordar ciertos detalles se ve afectada.",
+      "content": "Las personas tienen menos probabilidades de recordar información si creen que estará disponible para su consulta más adelante. Es decir, la confianza en la existencia de una fuente externa de información (Google u otros motores de búsqueda) puede llevar a la pérdida de la memoria del contenido específico.\nEl término \"amnesia digital\" también ha sido acuñado para describir este fenómeno. Un estudio realizado por Kaspersky Lab en 2015 mostró que las personas recurren a Internet o sus teléfonos inteligentes en lugar de recordar información importante, como números de teléfono u otros datos personales, ya que saben que pueden acceder a ellos rápidamente en línea.\nSe ha debatido si el Efecto Google podría considerarse una forma de \"memoria transactiva\", donde las personas externalizan parte de su memoria al confiar en la información almacenada en dispositivos o en la nube. Sin embargo, algunos investigadores han cuestionado esta noción, argumentando que la relación entre las personas y las computadoras es más bien una interacción instrumental, y no una transacción de memoria.\nLos programadores deben buscar la mejora continua de sus habilidades y conocimientos, y mantenerse actualizados sobre las últimas tendencias y tecnologías en su campo. También deben estar abiertos a críticas constructivas y dispuestos a aprender de sus errores.\nNo obstante, es esencial tener en cuenta que el acceso a la información en línea también ha brindado ventajas significativas. Los programadores y profesionales de la tecnología pueden aprovechar motores de búsqueda como Google para resolver problemas, encontrar soluciones y mantenerse actualizados en un campo en constante evolución.",
+      "image": "assets/img/google.jfif"
+    },
+    {
+      "title": "La deontología de la programación.",
+      "excerpt": "La deontología de la programación es el conjunto de principios éticos y morales que deben guiar el comportamiento de los programadores en su trabajo diario. Como profesionales de la tecnología, los programadores tienen la responsabilidad de desarrollar software seguro, confiable y respetuoso con los derechos y la privacidad de los usuarios.",
+      "content": "Así como en la responsabilidad social de los programadores. A continuación, se presentan algunos de los principios éticos que los programadores deben seguir para garantizar que su trabajo sea ético y respetuoso con los usuarios. Privacidad y seguridad de los usuarios: Los programadores deben garantizar la privacidad y la seguridad de los datos de los usuarios en todo momento. Esto significa que los programadores deben diseñar sistemas seguros, implementar protocolos de seguridad y proteger los datos de los usuarios de posibles vulnerabilidades y ataques.\nTransparencia y honestidad: Los programadores deben ser transparentes y honestos en su trabajo, y deben proporcionar a los usuarios información clara y comprensible sobre el uso que se da a sus datos personales. Los programadores también deben ser honestos sobre las limitaciones y posibles riesgos asociados con el uso de sus productos.\nResponsabilidad social: Los programadores tienen la responsabilidad social de asegurarse de que sus productos no dañen a los usuarios ni a la sociedad en general. Esto significa que los programadores deben considerar las posibles consecuencias de su trabajo, incluido el impacto ambiental, social y económico. Igualdad e inclusión: Los programadores deben trabajar para garantizar que sus productos sean accesibles e inclusivos para todos los usuarios, independientemente de su género, raza, origen étnico o discapacidad.\nLos programadores deben buscar la mejora continua de sus habilidades y conocimientos, y mantenerse actualizados sobre las últimas tendencias y tecnologías en su campo. También deben estar abiertos a críticas constructivas y dispuestos a aprender de sus errores.\nEn conclusión, la deontología de la programación es fundamental para garantizar que el trabajo de los programadores sea ético y respetuoso con los usuarios y la sociedad en general. Los programadores deben seguir principios éticos y morales que les permitan desarrollar software seguro, confiable y accesible, mientras que al mismo tiempo son responsables socialmente y están comprometidos con la mejora continua de sus habilidades y conocimientos.",
+      "image": "assets/img/deontologia.jpg"
+    }
+  ],
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/k-hc-2351a3262/",
+    "github": "https://github.com/kevin-hc",
+    "github_new": "https://github.com/kherreracentellas-dotcom",
+    "email": "kevin.herrera.centellas@gmail.com"
+  },
+  "meta": {
+    "title": "J. Kevin Herrera - Portafolio Profesional",
+    "description": "Ingeniero Informático & Desarrollador Full Stack. Especialista en Logística, ERP y Tecnología 3D.",
+    "ogImage": "assets/img/cerebroSinFondo.png"
+  }
+}

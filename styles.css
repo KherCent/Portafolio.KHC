@@ -1,268 +1,511 @@
 :root {
-  /* Paleta de colores Obsidian Neon - Coherente y Profesional */
-  --primary: #00f3ff;        /* Cian eléctrico vibrante */
-  --secondary: #9d00ff;      /* Púrpura neón */
-  --accent: #ff00c1;         /* Acento rosa/magenta */
-  --bg-dark: #050510;        /* Negro obsidian profundo */
-  --bg-surface: rgba(16, 16, 37, 0.7); /* Superficie de cristal oscura */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --text-main: #ffffff;
-  --text-dim: #b0b0d0;       /* Gris azulado para textos secundarios */
-  
-  /* Gradientes unificados */
-  --grad-primary: linear-gradient(135deg, var(--secondary), var(--primary));
-  --grad-dark: linear-gradient(180deg, #050510 0%, #0a0a20 100%);
-  
-  /* Sombras y efectos */
-  --glow-primary: 0 0 15px rgba(0, 243, 255, 0.3);
-  --glow-secondary: 0 0 15px rgba(157, 0, 255, 0.3);
+  /* Paleta Obsidian — alta legibilidad */
+  --primary: #00e5ff;
+  --primary-dim: rgba(0, 229, 255, 0.15);
+  --secondary: #7c4dff;
+  --bg-dark: #060611;
+  --bg-surface: rgba(12, 12, 30, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-main: #eaeaff;
+  --text-dim: #9a9abf;
+  --text-muted: #6b6b8d;
+
+  --glow-primary: 0 0 25px rgba(0, 229, 255, 0.25);
+  --glow-secondary: 0 0 25px rgba(124, 77, 255, 0.25);
+  --radius: 16px;
 }
 
-* {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
+  margin: 0;
   background: var(--bg-dark);
-  background-attachment: fixed;
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
+  line-height: 1.7;
   overflow-x: hidden;
-  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Efecto de navegación Glassmorphism Refinado */
+/* ──────────────── NAVBAR ──────────────── */
 #mainNav {
-  background: rgba(5, 5, 16, 0.8);
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
+  background: rgba(6, 6, 17, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
+  padding: 12px 0;
   transition: all 0.3s ease;
+  z-index: 1000;
 }
 
 #mainNav .navbar-brand {
   color: var(--primary);
   font-weight: 800;
-  letter-spacing: 1px;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
 }
 
 #mainNav .nav-link {
   color: var(--text-dim) !important;
   font-weight: 500;
+  font-size: 0.9rem;
+  padding: 8px 16px !important;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-#mainNav .nav-link:hover, #mainNav .nav-link.active {
+#mainNav .nav-link:hover,
+#mainNav .nav-link.active {
   color: var(--primary) !important;
 }
 
-/* Hero Section Refined */
+.navbar-toggler {
+  border: 1px solid var(--primary) !important;
+  padding: 6px 10px;
+}
+
+.navbar-toggler .fa-bars {
+  color: var(--primary);
+}
+
+/* ──────────────── HERO ──────────────── */
 .masthead {
-  background: linear-gradient(rgba(5, 5, 16, 0.7), rgba(5, 5, 16, 0.3)), url('assets/img/intro-bg.jpg');
+  background: linear-gradient(180deg, rgba(6,6,17,0.5) 0%, var(--bg-dark) 100%),
+              url('assets/img/intro-bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
 }
+
+.masthead::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -60%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.intro-body { position: relative; z-index: 2; }
 
 .brand-heading {
   font-family: 'Cabin', sans-serif;
-  font-size: 5rem;
-  background: var(--grad-primary);
-  -webkit-background-clip: text;
-  background-clip: text; /* Compatibilidad estándar */
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
+  font-size: 1.2rem !important;
+  font-weight: 800;
+  letter-spacing: 1px !important;
+  text-transform: uppercase;
+  color: var(--text-main);
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  margin-bottom: 10px;
+  white-space: nowrap;
 }
 
-/* Secciones generales */
+.intro-text {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--text-dim);
+  font-weight: 400;
+  letter-spacing: 1px;
+  min-height: 1.5em;
+}
+
+.floating-animation {
+  max-width: 250px;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.35));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+.btn-circle {
+  color: var(--primary) !important;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.btn-circle .fa {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* ──────────────── SECTIONS ──────────────── */
 .content-section {
-  padding: 120px 0;
-  position: relative;
+  padding: 100px 0;
+  text-align: center;
 }
 
-h2 {
+.content-section + .content-section {
+  border-top: 1px solid var(--glass-border);
+}
+
+h1, h2 {
   font-family: 'Cabin', sans-serif;
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 40px;
-  position: relative;
-  display: inline-block;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-/* Skill Cards Obsidian */
+h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 50px; }
+
+p { color: var(--text-dim); font-size: 1.05rem; }
+
+/* ──────────────── ABOUT ──────────────── */
+#about p {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+
+/* ──────────────── SKILL CARDS ──────────────── */
 .skill-card {
   background: var(--bg-surface);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 30px;
+  border-radius: var(--radius);
+  padding: 30px 25px;
   height: 100%;
+  text-align: left;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .skill-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   border-color: var(--primary);
   box-shadow: var(--glow-primary);
 }
 
 .skill-card h4 {
-  color: var(--text-main);
+  font-family: 'Cabin', sans-serif;
   font-weight: 700;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary-dim);
 }
+
+.skill-card ul { padding: 0; margin: 0; }
 
 .skill-card ul li {
   color: var(--text-dim);
-  margin-bottom: 10px;
-  list-style: none;
   font-size: 0.95rem;
+  padding: 6px 0;
+  list-style: none;
+  position: relative;
+  padding-left: 18px;
 }
 
 .skill-card ul li::before {
-  content: "•";
+  content: "▹";
+  position: absolute;
+  left: 0;
   color: var(--primary);
-  margin-right: 10px;
+  font-size: 0.8rem;
 }
 
-/* Timeline Coherente */
+/* ──────────────── TIMELINE / EXPERIENCE ──────────────── */
 .timeline-item {
   background: var(--bg-surface);
-  border-radius: 12px;
-  padding: 25px;
-  margin-left: 30px;
-  margin-bottom: 30px;
   border: 1px solid var(--glass-border);
-  position: relative;
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 28px 30px;
+  margin-bottom: 24px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  border-left-color: var(--secondary);
+  box-shadow: var(--glow-secondary);
 }
 
 .timeline-item h4 {
-  color: var(--primary);
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
-.timeline-item::before {
-  background: var(--primary);
+.timeline-item .text-muted {
+  color: var(--primary) !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.timeline-item p {
+  color: var(--text-dim);
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+/* ──────────────── CV DOWNLOAD ──────────────── */
+#download {
+  background: linear-gradient(135deg, rgba(124, 77, 255, 0.08), rgba(0, 229, 255, 0.08));
+}
+
+#download h1 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+#download p { color: var(--text-dim); }
+
+/* ──────────────── PROJECT CARDS ──────────────── */
+.project-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: var(--primary);
   box-shadow: var(--glow-primary);
 }
 
-/* Blog Items Obsidian */
+.project-card .carousel-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: linear-gradient(transparent, rgba(6, 6, 17, 0.95)) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding: 30px 20px 20px !important;
+}
+
+.carousel-caption h5 {
+  font-family: 'Cabin', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.carousel-caption p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+/* ──────────────── BLOG ──────────────── */
 .blog-item {
-  background: var(--bg-surface) !important;
+  background: var(--bg-surface);
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  padding: 0;
+  border-radius: var(--radius);
   overflow: hidden;
-  margin-bottom: 40px;
-  transition: border-color 0.3s ease;
+  text-align: left;
+  transition: all 0.3s ease;
 }
 
 .blog-item:hover {
   border-color: var(--secondary);
+  box-shadow: var(--glow-secondary);
 }
 
-.blog-item .texto-centrado {
-  padding: 30px;
+.blog-item img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .blog-item h3 {
-  color: var(--text-main);
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.25rem;
   font-weight: 700;
 }
 
 .texto-destacado {
   color: var(--text-dim) !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-left: 4px solid var(--secondary);
-  font-size: 1.1rem !important;
-  border-radius: 4px;
+  background: rgba(124, 77, 255, 0.08) !important;
+  border-left: 3px solid var(--secondary);
+  padding: 12px 18px;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem !important;
+  line-height: 1.7;
 }
 
-.blog-item h4 a {
-  color: var(--primary);
-  font-weight: 600;
-  transition: color 0.3s;
+.blog-content-full {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s ease, opacity 0.4s ease;
 }
 
-.blog-item h4 a:hover {
-  color: var(--secondary);
+.blog-content-full.show {
+  max-height: 3000px;
+  opacity: 1;
 }
 
-/* Botones Obsidian */
+/* ──────────────── BUTTONS ──────────────── */
 .btn-primary {
-  background: var(--grad-primary);
-  border: none;
-  border-radius: 30px;
-  padding: 15px 40px;
+  background: linear-gradient(135deg, var(--secondary), var(--primary)) !important;
+  border: none !important;
+  border-radius: 30px !important;
+  padding: 14px 36px;
   font-weight: 700;
-  color: #fff;
-  transition: all 0.3s ease;
+  color: #fff !important;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
 }
 
 .btn-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(157, 0, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 229, 255, 0.35);
 }
 
-/* Footer Obsidian */
-footer#footerpad {
-  background: var(--bg-dark);
-  border-top: 1px solid var(--glass-border);
-  padding-top: 80px;
-}
-
-.fa-circle {
-  color: var(--bg-surface);
-}
-
-.fa-stack:hover .fa-circle {
+.btn-outline-primary {
+  background: transparent;
+  border: 2px solid var(--primary);
   color: var(--primary);
+  border-radius: 30px;
+  padding: 10px 28px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-/* Juego de la Vida Styles */
+.btn-outline-primary:hover {
+  background: var(--primary);
+  color: var(--bg-dark);
+}
+
+/* ──────────────── CONTACT FORM ──────────────── */
+#contactForm {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#contactForm .form-control {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 10px !important;
+  color: var(--text-main) !important;
+  padding: 14px 18px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+#contactForm .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+#contactForm .form-control:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
+  outline: none;
+}
+
+/* ──────────────── GAME OF LIFE ──────────────── */
 #juegoVida {
   display: grid;
   grid-template-columns: repeat(30, 15px);
   grid-template-rows: repeat(30, 15px);
+  gap: 1px;
   margin: 30px auto;
-  gap: 2px;
-  background: rgba(0, 243, 255, 0.05);
   padding: 15px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 243, 255, 0.1);
+  background: rgba(0, 229, 255, 0.03);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  width: fit-content;
 }
 
 .cell {
-  background-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.15s ease;
 }
+
+.cell:hover { background: rgba(0, 229, 255, 0.2); }
 
 .cell.active {
-  background-color: var(--primary);
-  box-shadow: var(--glow-primary);
+  background: var(--primary);
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.5);
 }
 
-/* Secciones con fondo de imagen - Filtro oscuro coherente */
-#download, #blog {
-  position: relative;
-  background-attachment: fixed;
+/* ──────────────── FOOTER ──────────────── */
+footer#footerpad {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--glass-border);
+  padding: 60px 0 30px;
+  text-align: center;
 }
 
-#download::before, #blog::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(5, 5, 16, 0.85); /* Overlay oscuro para coherencia */
-  z-index: 1;
+.fa-stack { transition: transform 0.3s ease; }
+.fa-stack:hover { transform: translateY(-4px); }
+
+.fa-circle { color: rgba(255, 255, 255, 0.08); transition: color 0.3s ease; }
+.fa-stack:hover .fa-circle { color: var(--primary); }
+.fa-inverse { color: var(--text-main); }
+
+.copyright { color: var(--text-muted); font-size: 0.85rem; }
+
+/* ──────────────── REVEAL ANIMATIONS ──────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#download .container, #blog .container {
-  position: relative;
-  z-index: 2;
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ──────────────── RESPONSIVE ──────────────── */
+@media (max-width: 992px) {
+  .skill-card { margin-bottom: 20px; }
+  .project-card .carousel-item img { height: 280px; }
+}
+
+@media (max-width: 768px) {
+  .brand-heading { letter-spacing: 2px; }
+  .floating-animation { max-width: 180px; }
+  .content-section { padding: 70px 0; }
+  .skill-card { padding: 22px 18px; }
+  .timeline-item { padding: 20px; }
+  .project-card .carousel-item img { height: 220px; }
+
+  .blog-item img {
+    max-height: 200px;
+  }
+
+  #juegoVida {
+    grid-template-columns: repeat(20, 12px);
+    grid-template-rows: repeat(20, 12px);
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-animation { max-width: 140px; }
+  .content-section { padding: 50px 0; }
+  h2 { margin-bottom: 30px; }
 }
