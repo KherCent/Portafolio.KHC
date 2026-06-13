@@ -6,7 +6,7 @@ let hasInteracted = false;
 let hasSubmitted = false;
 let exitIntentShown = false;
 let pageLoadTime = Date.now();
-const MIN_TIME_BEFORE_SHOW = 30000; // 30 segundos mínimo
+const MIN_TIME_BEFORE_SHOW = 5000; // 5 segundos mínimo
 
 // Crear modal de retención
 function createExitModal() {
@@ -163,9 +163,15 @@ function showExitIntent() {
 
 // Detectar intención de salida
 function setupExitDetection() {
-    // 1. Mouse sale por arriba de la ventana
+    // 1. Mouse sale por arriba (hacia barra del navegador/cerrar)
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 5 && hasInteracted) {
+            showExitIntent();
+        }
+    });
+    
     document.addEventListener('mouseout', (e) => {
-        if (e.clientY <= 0 && hasInteracted) {
+        if (e.clientY <= 5 && hasInteracted && e.target === document.documentElement) {
             showExitIntent();
         }
     });
@@ -173,23 +179,15 @@ function setupExitDetection() {
     // 2. Antes de abandonar la página
     window.addEventListener('beforeunload', (e) => {
         if (hasInteracted && !hasSubmitted) {
-            showExitIntent();
             // Mostrar confirmación del navegador
             e.preventDefault();
-            e.returnValue = '¿Seguro que quieres salir?';
+            e.returnValue = '';
         }
     });
     
     // 3. Detectar cuando el usuario cambia de pestaña
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'hidden' && hasInteracted && !hasSubmitted) {
-            showExitIntent();
-        }
-    });
-    
-    // 4. Detectar Alt+F4 o cierre de ventana (menos confiable)
-    window.addEventListener('blur', () => {
-        if (hasInteracted && !hasSubmitted) {
             showExitIntent();
         }
     });
