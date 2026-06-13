@@ -251,11 +251,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const numRows = 30;
     const numCols = 30;
 
+    let isDrawing = false;
+    let drawMode = null; // 'activate' o 'deactivate'
+
     for (let i = 0; i < numRows; i++) {
         for (let j = 0; j < numCols; j++) {
             const cell = document.createElement('div');
             cell.classList.add('cell');
-            cell.addEventListener('click', toggleCell);
+            cell.dataset.row = i;
+            cell.dataset.col = j;
             gridContainer.appendChild(cell);
             cells.push(cell);
         }
@@ -263,11 +267,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setDefaultAutomata();
 
-    function toggleCell(event) {
-        if (!isPlaying) {
-            event.target.classList.toggle('active');
+    // Función para activar/desactivar una celda
+    function setCellState(cell, active) {
+        if (active) {
+            cell.classList.add('active');
+        } else {
+            cell.classList.remove('active');
         }
     }
+
+    // Función para manejar la celda bajo el cursor
+    function handleCell(cell) {
+        if (!cell || !cell.classList.contains('cell')) return;
+        if (isPlaying) return;
+        
+        if (drawMode === 'activate') {
+            cell.classList.add('active');
+        } else if (drawMode === 'deactivate') {
+            cell.classList.remove('active');
+        }
+    }
+
+    // Prevenir menú contextual en el grid
+    gridContainer.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+    });
+
+    // Eventos de mouse en el grid
+    gridContainer.addEventListener('mousedown', (e) => {
+        if (isPlaying) return;
+        e.preventDefault();
+        
+        const cell = e.target;
+        if (!cell.classList.contains('cell')) return;
+
+        // Mantener click (arrastrar) = ACTIVAR
+        if (e.button === 0 && !e.ctrlKey) {
+            setCellState(cell, true);
+            drawMode = 'activate';
+            isDrawing = true;
+        }
+        // Click izquierdo con Ctrl = DESACTIVAR
+        else if ((e.button === 0 && e.ctrlKey) || e.button === 2) {
+            setCellState(cell, false);
+            drawMode = 'deactivate';
+            isDrawing = true;
+        }
+    });
+
+    gridContainer.addEventListener('mousemove', (e) => {
+        if (!isDrawing || isPlaying) return;
+        const cell = e.target;
+        handleCell(cell);
+    });
+
+    gridContainer.addEventListener('mouseup', () => {
+        isDrawing = false;
+        drawMode = null;
+    });
+
+    gridContainer.addEventListener('mouseleave', () => {
+        isDrawing = false;
+        drawMode = null;
+    });
+
+    // Click simple (para cuando no se ha arrastrado)
+    gridContainer.addEventListener('mouseup', (e) => {
+        // El click simple ya se maneja en mousedown
+    });
 
     function startGame() {
         isPlaying = !isPlaying;
