@@ -137,6 +137,35 @@
       ]
     },
     {
+      "title": "Calculadora de Costos de Impresión 3D",
+      "items": [
+        {
+          "title": "Formulario de Cálculo",
+          "description": "Herramienta interactiva para calcular costos considerando consumo eléctrico, filamento, pérdidas, mano de obra, margen e IVA.",
+          "image": "assets/img/proyectos/calc3d_inputs.jpg",
+          "link": ""
+        },
+        {
+          "title": "Gráfico de Desglose",
+          "description": "Visualización intuitiva con gráficos de dona del porcentaje de costos asociados a electricidad, filamento y margen de error.",
+          "image": "assets/img/proyectos/calc3d_stats.jpg",
+          "link": ""
+        },
+        {
+          "title": "Cotización Generada",
+          "description": "Generación automática de cotizaciones formales estructuradas listas para exportar y compartir en formato PDF.",
+          "image": "assets/img/proyectos/calc3d_pdf.jpg",
+          "link": ""
+        },
+        {
+          "title": "Configuración del Sistema",
+          "description": "Personalización del sistema: ajuste de moneda (CLP, USD, EUR, MXN), perfiles de impresoras y presets de filamentos.",
+          "image": "assets/img/proyectos/calc3d_settings.jpg",
+          "link": ""
+        }
+      ]
+    },
+    {
       "title": "E-commerce Odoo (Fullias.com)",
       "items": [
         {
