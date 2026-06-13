@@ -212,18 +212,48 @@
       ]
     },
     {
-      "title": "IoT, CNC y Energía",
+      "title": "IoT, CNC y Energía Solar",
       "items": [
         {
-          "title": "Energía Fotovoltaica",
-          "description": "Planta solar de 6000W con gestión inteligente.",
-          "image": "assets/img/proyectos/solar_system.png",
+          "title": "Generación Solar Fotovoltaica",
+          "description": "Instalación limpia de 4 paneles solares de 550W sobre estructura a medida para generación eléctrica sustentable.",
+          "image": "assets/img/proyectos/solar_panels.jpg",
           "link": ""
         },
         {
-          "title": "Maquinaria CNC & 3D",
-          "description": "Diseño y construcción de Routers CNC e Impresoras 3D.",
-          "image": "assets/img/proyectos/cnc_router.png",
+          "title": "Almacenamiento y Respaldo",
+          "description": "Arreglo de 20 baterías organizadas en 2 ramas en serie de 10 baterías en paralelo, entregando un banco de energía de 24V a 1000Ah.",
+          "image": "assets/img/proyectos/solar_batteries.jpg",
+          "link": ""
+        },
+        {
+          "title": "Prusa Bear (Eje Z de 40cm)",
+          "description": "Construcción y calibración de impresora 3D Prusa Bear modificada con eje Z extendido para mayor volumen de construcción vertical.",
+          "image": "assets/img/proyectos/prusa_bear.png",
+          "link": ""
+        },
+        {
+          "title": "Prusa Mk3s (Firmware Corporativo)",
+          "description": "Configuración y compilación de firmware a medida para la empresa Esfin9e3d.",
+          "image": "assets/img/proyectos/prusa_mk3s.png",
+          "link": ""
+        },
+        {
+          "title": "Prusa Mini+",
+          "description": "Ensamble, calibración y puesta en marcha de impresora 3D compacta Prusa Mini+.",
+          "image": "assets/img/proyectos/prusa_mini.png",
+          "link": ""
+        },
+        {
+          "title": "Prototipo Prusa Mini+ (Extended Z)",
+          "description": "Diseño y testeo de un prototipo de Prusa Mini+ con eje Z extendido para impresiones altas.",
+          "image": "assets/img/proyectos/prusa_mini_extended.png",
+          "link": ""
+        },
+        {
+          "title": "CNC Router MPCNC Primo",
+          "description": "Fabricación y ensamble completo de router CNC basado en el modelo MPCNC Primo para corte y grabado.",
+          "image": "assets/img/proyectos/cnc_mpcnc_primo.png",
           "link": ""
         }
       ]
