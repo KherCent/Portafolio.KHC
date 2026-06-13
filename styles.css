@@ -338,6 +338,11 @@ p { color: var(--text-dim); font-size: 1.05rem; }
   z-index: 3;
 }
 
+.project-card .carousel-control-prev,
+.project-card .carousel-control-next {
+  z-index: 10;
+}
+
 .carousel-caption h5 {
   font-family: 'Cabin', sans-serif;
   font-weight: 700;
