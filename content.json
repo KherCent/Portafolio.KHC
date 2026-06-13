@@ -10,7 +10,7 @@
   },
   "about": {
     "title": "Sobre Mí",
-    "description": "Ing. TI apasionado por la tecnología, con experiencia en soporte técnico, programación y desarrollo de soluciones digitales. Mi trayectoria incluye la participación en proyectos de fabricación de impresoras 3D y routers CNC, implementación y gestión de sistemas ERP con Odoo, diseño y desarrollo web, además de brindar soporte y reparación de hardware y software. Me caracterizo por mi capacidad de aprendizaje continuo, resolución de problemas y adaptación a nuevas tecnologías."
+    "description": "Ing. TI apasionado por la tecnología, con experiencia en soporte técnico, programación y desarrollo de soluciones digitales. Mi trayectoria incluye la participación en proyectos de fabricación de impresoras 3D y CNC, implementación de sistemas ERP con Odoo, diseño y desarrollo web, integración entre sistemas (middleware) y DevOps en AWS y Oracle, además de brindar soporte y reparación de hardware y software. Me caracterizo por mi capacidad de aprendizaje continuo, resolución de problemas y adaptación a nuevas tecnologías."
   },
   "skills": [
     {
@@ -58,9 +58,14 @@
   ],
   "experience": [
     {
+      "title": "DevOps | RPN",
+      "period": "May 2026 – Jun 2026",
+      "description": "Migración de sistema OT desde EC2 de AWS hacia dos instancias QA y PROD en Oracle Cloud Infrastructure (OCI), con object storage y despliegue de frontend en Cloudflare."
+    },
+    {
       "title": "Programador Full Stack | BLCorporations",
       "period": "Nov 2025 – Mar 2026",
-      "description": "Desarrollo de un middleware para encomiendas internacionales y de última milla. El sistema consiste en un core que gestiona los pedidos despachados desde los remitentes en China, generando etiquetas en múltiples formatos (PDF, ZPL, EPL) y un sistema de trazabilidad integrado con Aduanas y múltiples couriers"
+      "description": "Desarrollo de un middleware para encomiendas internacionales y de última milla. El sistema consiste en un core que gestiona los pedidos despachados desde los remitentes en China, generando etiquetas en múltiples formatos (PDF, ZPL, EPL) y un sistema de trazabilidad integrado con Aduanas y múltiples couriers."
     },
     {
       "title": "Supervisor Técnico | DATXER",
@@ -70,7 +75,7 @@
     {
       "title": "Soporte en Terreno | Coasin Logicalis",
       "period": "Jun 2024 – Feb 2025",
-      "description": "Soporte informático en terreno en Minera Zaldívar, encargado de la atención a usuarios, diagnóstico y resolución de incidencias de software y hardware, asegurando la continuidad operativa"
+      "description": "Soporte informático en terreno en Minera Zaldívar, encargado de la atención a usuarios, diagnóstico y resolución de incidencias de software y hardware, asegurando la continuidad operativa."
     },
     {
       "title": "Programador Full Stack Javascript | Xorex",
@@ -78,9 +83,19 @@
       "description": "Desarrollo de interfaces de usuario interactivas y dinámicas utilizando React. Creación y gestión de APIs REST con Node.js."
     },
     {
+      "title": "Desarrollador de máquinas CNC | 3DDIOS (Emprendimiento)",
+      "period": "Desde 2020",
+      "description": "Fabricación de impresoras 3D y routers CNC. Modificación de firmware, hardware y ensamblaje para su venta o uso en otros proyectos."
+    },
+    {
       "title": "Programador Java-Spring | Sercabol",
       "period": "Jun 2020 – Nov 2021",
       "description": "Mantenimiento y actualización del sistema HRMS, incluyendo la gestión de bases de datos, refactorización de codigo y la implementación de nuevas funciones."
+    },
+    {
+      "title": "Soporte Informático | Freelancer",
+      "period": "Desde 2017",
+      "description": "Servicios de mantenimiento y reparación de computadoras, impresoras, recarga de tinta y cambio de pantallas de dispositivos móviles."
     }
   ],
   "projectCarousels": [
@@ -212,7 +227,7 @@
       ]
     },
     {
-      "title": "IoT, CNC y Energía Solar",
+      "title": "Energía Solar Fotovoltaica",
       "items": [
         {
           "title": "Generación Solar Fotovoltaica",
@@ -225,7 +240,12 @@
           "description": "Arreglo de 20 baterías organizadas en 2 ramas en serie de 10 baterías en paralelo, entregando un banco de energía de 24V a 1000Ah.",
           "image": "assets/img/proyectos/solar_batteries.jpg",
           "link": ""
-        },
+        }
+      ]
+    },
+    {
+      "title": "Impresión 3D y Control Numérico (CNC)",
+      "items": [
         {
           "title": "Prusa Bear (Eje Z de 40cm)",
           "description": "Construcción y calibración de impresora 3D Prusa Bear modificada con eje Z extendido para mayor volumen de construcción vertical.",
@@ -254,6 +274,12 @@
           "title": "CNC Router MPCNC Primo",
           "description": "Fabricación y ensamble completo de router CNC basado en el modelo MPCNC Primo para corte y grabado.",
           "image": "assets/img/proyectos/cnc_mpcnc_primo.png",
+          "link": "https://youtu.be/qSdFEGNGmeY?si=J-gFluwrBS5G_fBY"
+        },
+        {
+          "title": "CNC Láser 80W DIY",
+          "description": "Diseño, estructura y ensamble de grabadora y cortadora láser DIY con módulo de 80W y sistema de asistencia de aire (Air Assist).",
+          "image": "assets/img/proyectos/cnc_laser_80w.png",
           "link": ""
         }
       ]
@@ -302,6 +328,23 @@
     "github_new": "https://github.com/kherreracentellas-dotcom",
     "email": "kevin.herrera.centellas@gmail.com"
   },
+  "education": [
+    {
+      "degree": "Ingeniería en Tecnologías de la Información",
+      "institution": "Universidad San Sebastián"
+    },
+    {
+      "degree": "Técnico Analista Programador",
+      "institution": "CFT CENCO"
+    },
+    {
+      "degree": "Química y Farmacia (Incompleta)",
+      "institution": "Universidad Católica del Norte"
+    }
+  ],
+  "licenses": [
+    "Licencia de conducir Clase B y D"
+  ],
   "meta": {
     "title": "J. Kevin Herrera - Portafolio Profesional",
     "description": "Ingeniero Informático & Desarrollador Full Stack. Especialista en Logística, ERP y Tecnología 3D.",

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CARGA DE CONTENIDO DINÁMICO (CMS) ---
     async function loadContent() {
         try {
-            const response = await fetch('content.json');
+            const response = await fetch('content.json?t=' + Date.now());
             const data = await response.json();
 
             // Meta
@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div id="carousel-${cIdx}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
                             <div class="carousel-inner">
                                 ${carousel.items.map((item, iIdx) => `
-                                    <div class="carousel-item ${iIdx === 0 ? 'active' : ''}">
-                                        <img src="${item.image}" class="d-block w-100" alt="${item.title}">
+                                    <div class="carousel-item ${iIdx === 0 ? 'active' : ''}" style="--bg-img: url('${item.image}');">
+                                        <img src="${item.image}" class="d-block img-fluid mx-auto" alt="${item.title}">
                                         <div class="carousel-caption d-md-block">
                                             <h5 class="text-primary">${item.title}</h5>
                                             <p>${item.description}</p>
@@ -181,6 +181,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     </a>
                 </li>
             `;
+
+            // Education
+            const educationContainer = document.getElementById('education-container');
+            if (data.education && educationContainer) {
+                educationContainer.innerHTML = `
+                    <div class="row text-start reveal">
+                        <div class="col-md-6 mb-4">
+                            <h4 class="text-primary mb-4" style="font-size: 1.25rem;"><i class="fa fa-graduation-cap me-2"></i>Títulos Académicos</h4>
+                            <div class="timeline-education">
+                                ${data.education.map(edu => `
+                                    <div class="mb-4 ps-3 border-start border-primary" style="border-width: 2px !important;">
+                                        <h5 class="mb-1 text-white" style="font-size: 1.05rem;">${edu.degree}</h5>
+                                        <p class="mb-0" style="color: var(--text-dim); font-size: 0.95rem;">${edu.institution}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <h4 class="text-primary mb-4" style="font-size: 1.25rem;"><i class="fa fa-id-card-o me-2"></i>Licencias y Conducción</h4>
+                            <ul class="list-unstyled">
+                                ${data.licenses.map(lic => `
+                                    <li style="color: var(--text-dim); font-size: 0.95rem;" class="mb-2">
+                                        <i class="fa fa-check text-primary me-2"></i>${lic}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
 
             // Blog read-more
             document.querySelectorAll('.read-more').forEach(link => {
