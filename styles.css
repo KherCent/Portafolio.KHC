@@ -17,10 +17,15 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
 
 body {
   margin: 0;
+  width: 100%;
   background: var(--bg-dark);
   color: var(--text-main);
   font-family: 'Outfit', 'Inter', sans-serif;
@@ -84,6 +89,7 @@ body {
   justify-content: center;
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 .masthead::after {
