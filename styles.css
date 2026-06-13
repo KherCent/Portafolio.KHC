@@ -552,7 +552,10 @@ footer#footerpad {
   .project-card .carousel-item img {
     height: 200px;
     top: 0;
-    transform: translate(-50%, 0);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: none;
   }
   
   .project-card .carousel-caption {
@@ -566,6 +569,8 @@ footer#footerpad {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .blog-item img {
