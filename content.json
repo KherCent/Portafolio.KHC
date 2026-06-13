@@ -247,6 +247,12 @@
       "title": "Impresoras 3D y Control Numérico (CNC)",
       "items": [
         {
+          "title": "Taller 3D & CNC",
+          "description": "Vista general de mi taller de fabricación digital, equipado con múltiples impresoras 3D (Prusa Bear, MK3S, Mini+) y maquinaria de control numérico (CNC).",
+          "image": "assets/img/proyectos/taller_3d.jpg",
+          "link": ""
+        },
+        {
           "title": "Prusa Bear (Eje Z de 40cm)",
           "description": "Construcción y calibración de impresora 3D Prusa Bear modificada con eje Z extendido para mayor volumen de construcción vertical.",
           "image": "assets/img/proyectos/prusa_bear.png",
