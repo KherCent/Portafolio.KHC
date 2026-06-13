@@ -328,13 +328,13 @@ p { color: var(--text-dim); font-size: 1.05rem; }
 }
 
 .carousel-caption {
-  background: linear-gradient(transparent, rgba(6, 6, 17, 0.95)) !important;
+  background: linear-gradient(to top, rgba(6, 6, 17, 0.98) 0%, rgba(6, 6, 17, 0.8) 60%, transparent 100%) !important;
   border: none !important;
   border-radius: 0 !important;
   bottom: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  padding: 30px 20px 20px !important;
+  padding: 40px 20px 20px !important;
   z-index: 3;
 }
 
@@ -344,14 +344,19 @@ p { color: var(--text-dim); font-size: 1.05rem; }
 }
 
 .carousel-caption h5 {
+  color: var(--primary) !important;
   font-family: 'Cabin', sans-serif;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95);
+  margin-bottom: 6px;
 }
 
 .carousel-caption p {
-  color: var(--text-dim);
-  font-size: 0.9rem;
+  color: var(--text-main) !important;
+  font-size: 0.95rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+  margin-bottom: 0;
 }
 
 /* ──────────────── BLOG ──────────────── */
