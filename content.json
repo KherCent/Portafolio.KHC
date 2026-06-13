@@ -85,6 +85,58 @@
   ],
   "projectCarousels": [
     {
+      "title": "Software de Reservas y Gestión (MiCalend.com)",
+      "items": [
+        {
+          "title": "Inicio / Landing Page",
+          "description": "Plataforma integral de reservas, control de caja y fidelización diseñada para centros de estética, salud y bienestar.",
+          "image": "assets/img/proyectos/micalend_landing.png",
+          "link": "https://micalend.com"
+        },
+        {
+          "title": "Acceso / Login",
+          "description": "Pantalla de bienvenida y autenticación segura para usuarios y administradores.",
+          "image": "assets/img/proyectos/micalend_login.png",
+          "link": "https://app.micalend.com/login"
+        },
+        {
+          "title": "Agenda Semanal",
+          "description": "Gestión visual e intuitiva de citas, estado de reservas y asignación de profesionales en tiempo real.",
+          "image": "assets/img/proyectos/micalend_agenda.png",
+          "link": ""
+        },
+        {
+          "title": "Email Marketing",
+          "description": "Panel de control para campañas de correo masivo, tasas de apertura y fidelización de clientes.",
+          "image": "assets/img/proyectos/micalend_marketing.png",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "title": "Plataforma de Soporte Técnico (Soporte DevSups)",
+      "items": [
+        {
+          "title": "Inicio / Landing Page",
+          "description": "Sitio web profesional de soporte técnico, reparación, mantenimiento y optimización de computadores y periféricos.",
+          "image": "assets/img/proyectos/devsups_home.png",
+          "link": "https://soporte.devsups.com/"
+        },
+        {
+          "title": "Catálogo de Servicios",
+          "description": "Visualización y clasificación de servicios técnicos (Mantenimiento, Diagnóstico, PC Gamer, etc.) con precios integrados.",
+          "image": "assets/img/proyectos/devsups_services.png",
+          "link": ""
+        },
+        {
+          "title": "Proceso de Reserva",
+          "description": "Flujo interactivo para agendar citas y coordinar la entrega de equipos paso a paso.",
+          "image": "assets/img/proyectos/devsups_booking.png",
+          "link": ""
+        }
+      ]
+    },
+    {
       "title": "E-commerce Odoo (Fullias.com)",
       "items": [
         {
