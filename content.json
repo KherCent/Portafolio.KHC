@@ -129,6 +129,29 @@
       ]
     },
     {
+      "title": "Plataforma de Digitalización con IA (Scribai)",
+      "items": [
+        {
+          "title": "Panel Principal / Dashboard",
+          "description": "Plataforma web multi-modelo impulsada por inteligencia artificial orientada a la transcripción, traducción y digitalización de manuscritos históricos y documentos antiguos.",
+          "image": "assets/img/proyectos/scribai_home.png",
+          "link": ""
+        },
+        {
+          "title": "Visualizador y Editor de Transcripciones",
+          "description": "Interfaz de doble panel folio por folio para contrastar el documento original con la transcripción inteligente generada y editar correcciones en tiempo real.",
+          "image": "assets/img/proyectos/scribai_transcription.png",
+          "link": ""
+        },
+        {
+          "title": "Administración de Proyectos y Modelos",
+          "description": "Módulo de gestión de manuscritos, control de versiones de transcripción y selección dinámica de modelos de lenguaje e IA para transcripción asistida.",
+          "image": "assets/img/proyectos/scribai_model.png",
+          "link": ""
+        }
+      ]
+    },
+    {
       "title": "Plataforma de Soporte Técnico (Soporte DevSups)",
       "items": [
         {
