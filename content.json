@@ -181,7 +181,7 @@
       ]
     },
     {
-      "title": "Aula Virtual y Cotizador OTEC (Insepro)",
+      "title": "Aula Virtual - OTEC",
       "items": [
         {
           "title": "Inicio / Portal Principal",
@@ -209,7 +209,7 @@
         },
         {
           "title": "Servicios de Valor Agregado",
-          "description": "Catálogo interno que detalla las áreas de ingeniería aplicada, soporte OTEC (SENCE) y consultoría técnica.",
+          "description": "Catálogo que detalla las áreas de ingeniería aplicada, soporte OTEC (SENCE) y consultoría técnica.",
           "image": "assets/img/proyectos/insepro_services.png",
           "link": ""
         }
