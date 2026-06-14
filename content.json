@@ -347,7 +347,7 @@
       "items": [
         {
           "title": "Estación de Trabajo y Desarrollo",
-          "description": "Entorno multitarea optimizado con servidor local, múltiples monitores y laptops dedicadas para desarrollo Full Stack, virtualización, automatización de IoT y control remoto de maquinaria.",
+          "description": "Entorno multitarea optimizado con servidor local, múltiples monitores y laptops dedicadas para desarrollo Full Stack (Windows y MacOS).",
           "image": "assets/img/proyectos/homelab.png",
           "link": ""
         },
