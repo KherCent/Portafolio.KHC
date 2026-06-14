@@ -347,7 +347,7 @@
       "items": [
         {
           "title": "Estación de Trabajo y Desarrollo",
-          "description": "Entorno multitarea optimizado con servidor local, múltiples monitores y laptops dedicadas para desarrollo Full Stack (Windows y MacOS).",
+          "description": "Entorno multitarea optimizado con servidor local, múltiples monitores y laptops dedicadas para desarrollo Full Stack, virtualización, automatización de IoT y control remoto de maquinaria.",
           "image": "assets/img/proyectos/homelab.png",
           "link": ""
         },
@@ -355,6 +355,12 @@
           "title": "Hardware del Servidor Xeon",
           "description": "Montaje y configuración de servidor local con placa base X99-P4 y GPU Radeon HD 7450. Equipado con procesador Intel Xeon E5-2680 v4 (14 núcleos físicos y 28 hilos) y 32 GB RAM DDR4 en Dual Channel.",
           "image": "assets/img/proyectos/servidor_local.jpg",
+          "link": ""
+        },
+        {
+          "title": "Especificaciones del Sistema (lshw)",
+          "description": "Detalle de los componentes de hardware mapeados bajo Linux (Ubuntu Server), incluyendo la verificación del procesador Xeon v4 y la controladora de memoria DDR4.",
+          "image": "assets/img/proyectos/servidor_specs.png",
           "link": ""
         }
       ]
