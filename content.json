@@ -181,6 +181,41 @@
       ]
     },
     {
+      "title": "Aula Virtual y Cotizador OTEC (Insepro)",
+      "items": [
+        {
+          "title": "Inicio / Portal Principal",
+          "description": "Sitio web público de la plataforma de capacitación OTEC, con catálogo de cursos interactivo y diseño responsivo premium.",
+          "image": "assets/img/proyectos/insepro_home.png",
+          "link": ""
+        },
+        {
+          "title": "Cotizador de Costos OTEC",
+          "description": "Calculadora interna (local-first) para simular y cotizar capacitaciones considerando relatores, viáticos, logística y franquicia SENCE.",
+          "image": "assets/img/proyectos/insepro_cotizador.png",
+          "link": ""
+        },
+        {
+          "title": "Base de Relatores",
+          "description": "Panel de administración y registro de expertos técnicos con motor de búsqueda avanzado y gestión de estados en tiempo real.",
+          "image": "assets/img/proyectos/insepro_relatores.png",
+          "link": ""
+        },
+        {
+          "title": "Panel de Administración de Usuarios",
+          "description": "Consola para gestión de accesos, roles y privilegios de administradores, instructores y alumnos.",
+          "image": "assets/img/proyectos/insepro_usuarios.png",
+          "link": ""
+        },
+        {
+          "title": "Servicios de Valor Agregado",
+          "description": "Catálogo interno que detalla las áreas de ingeniería aplicada, soporte OTEC (SENCE) y consultoría técnica.",
+          "image": "assets/img/proyectos/insepro_services.png",
+          "link": ""
+        }
+      ]
+    },
+    {
       "title": "E-commerce Odoo (Fullias.com)",
       "items": [
         {
