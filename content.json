@@ -14,45 +14,57 @@
   },
   "skills": [
     {
-      "category": "Backend",
+      "category": "Backend & APIs",
       "items": [
         "Java (Spring Boot)",
         "Node.js (Express)",
-        "Python",
+        "Python (FastAPI)",
         "SQL (PostgreSQL, MySQL)",
         "RESTful APIs"
       ]
     },
     {
-      "category": "Frontend",
+      "category": "Frontend & Web UI",
       "items": [
         "JavaScript (ES6+)",
         "React.js",
-        "jQuery",
         "Tailwind CSS",
         "HTML5 / CSS3",
+        "jQuery",
         "Responsive Design"
       ]
     },
     {
-      "category": "Infraestructura & ERP",
+      "category": "Desarrollo Móvil",
       "items": [
-        "Odoo ERP",
-        "Oracle Cloud",
-        "Linux (Ubuntu Server)",
-        "Docker",
-        "Git / GitHub",
-        "Windows Server"
+        "React Native (iOS / Android)",
+        "Kotlin",
+        "Progressive Web Apps (PWA)"
       ]
     },
     {
-      "category": "IoT & CNC",
+      "category": "Infraestructura, Cloud & ERP",
+      "items": [
+        "Cloud: AWS, Azure, Oracle Cloud",
+        "DevOps & Herramientas: Docker, Git / GitHub",
+        "Sistemas de Servidor: Linux (Ubuntu Server), Windows Server",
+        "Software Empresarial: Odoo ERP"
+      ]
+    },
+    {
+      "category": "IoT, CNC & Hardware",
       "items": [
         "C++ (Marlin / GRBL)",
-        "Impresoras 3D",
-        "Energía Solar Fotovoltaica",
-        "Electrónica Aplicada",
-        "Diagnóstico de Hardware"
+        "Impresión 3D & Control Numérico Computarizado (CNC)",
+        "Electrónica Aplicada & Energía Solar Fotovoltaica",
+        "Diagnóstico y Reparación de Hardware"
+      ]
+    },
+    {
+      "category": "Sistemas Operativos",
+      "items": [
+        "Windows, macOS, Kali Linux",
+        "Android, iOS"
       ]
     }
   ],
@@ -100,7 +112,7 @@
   ],
   "projectCarousels": [
     {
-      "title": "Software de Reservas y Gestión (MiCalend.com)",
+      "title": "Software de Reservas y Gestión (MiCalend)",
       "items": [
         {
           "title": "Inicio / Landing Page",
