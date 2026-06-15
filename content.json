@@ -46,7 +46,7 @@
       "category": "Infraestructura, Cloud & ERP",
       "items": [
         "Cloud: AWS, Azure, Oracle Cloud",
-        "DevOps & Herramientas: Docker, Git / GitHub",
+        "DevOps & Herramientas: Docker, Git / GitHub,Github Actions",
         "Sistemas de Servidor: Linux (Ubuntu Server), Windows Server",
         "Software Empresarial: Odoo ERP"
       ]
